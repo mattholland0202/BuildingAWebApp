@@ -3,6 +3,9 @@
     "ToAddress": "covmatty1@hotmail.co.uk"
   },
   "ConnectionStrings": {
-    "WorldContextConnection":  "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+    "WorldContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  },
+  "Keys": {
+    "BingKey":  "DONTPUTKEYSINSOURCECONTROL" // Will be overriden. Set as an environment variable on dev machine -> Keys__BingKey
   }
 }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TheWorld.Models.Trip>
+@{
+    ViewBag.Title = "Home Page";
+}
+@section Scripts {
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/js/app-trips.js"></script>   
+    <script src="~/js/tripsController.js"></script>
+}
+<!DOCTYPE html>
+
+<div class="row" ng-app="app-trips">
+
+    <div ng-controller="tripsController as vm" class="col-md-6 col-md-offset-3">
+        <table class="table table-responsive table-striped">
+            <tr ng-repeat="trip in vm.trips">
+                <td>{{trip.name}}</td>
+                <td>{{trip.created | date:'dd-MM-yyyy'}}</td>
+                <td><a href="#" class="btn btn-sm btn-primary">Manage</a></td>
+            </tr>
+        </table>
+
+        <form novalidate name="newTripForm" ng-submit="vm.addNewTrip()">
+            <div class="form-group">
+                <label for="name">Trip Name</label>
+                <input class="form-control" type="text" id="name" name="name" ng-model="vm.newTrip.name" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-success btn-sm"  />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h1>HELLO WORLD!</h1>
+        <p>This is a new paragraph</p>
+
+        <form>
+            <div class="form-group">
+                <label>Date</label>
+                <input class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <input class="form-control" />
+            </div>
+
+            <div><input type="submit" value="Add" class="btn btn-success" /></div>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h2>The Map</h2>
+
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.Name : @item.DateCreated.ToString("d")</li>
+            }
+        </ul>
+    </div>
+</div>
